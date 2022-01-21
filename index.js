@@ -95,7 +95,9 @@ class Battle extends React.Component {
 	render() {
 		return(
 			// Butões que executam os ataques Slash, Fire, Fly e Stomp
-			<div>
+			<div className="attacksHUD">
+				<img className="charmanderImagem" src={require("./pokemonCharmander.jpg")} alt="Pókemon charmander do tipo fogo, imagem"/>
+				<img className="bulbassaurImagem" src={require("./pokemonBulbassaur.jpg")} alt="Pókemon bulbassaur do tipo grama, imagem"/>
 				<button onClick = {this.SlashAttack}>
 					Slash
 				</button>,

@@ -1,4 +1,6 @@
- Documentação do projeto Pokemon-React-Game.
+
+
+Documentação do projeto Pokemon-React-Game.
 
 Arquivo index.js:
 
