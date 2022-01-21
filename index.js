@@ -95,24 +95,36 @@ class Battle extends React.Component {
 	render() {
 		return(
 			// Butões que executam os ataques Slash, Fire, Fly e Stomp
-			<div className="attacksHUD">
-				<img className="charmanderImagem" src={require("./pokemonCharmander.jpg")} alt="Pókemon charmander do tipo fogo, imagem"/>
-				<img className="bulbassaurImagem" src={require("./pokemonBulbassaur.jpg")} alt="Pókemon bulbassaur do tipo grama, imagem"/>
-				<button onClick = {this.SlashAttack}>
-					Slash
-				</button>,
+			<div className="allHUD">
+				<div className="imageHUD">
+					<p className="enemyLife">{this.state.enemyStates.life} HP</p>
+					<p className="allyLife">{this.state.allyStates.life} HP</p>
+					<img className="charmanderImagem" width="200px" src={require("./pokemonCharmander.jpg")} alt="Pókemon charmander do tipo fogo, imagem"/>
+					<img className="bulbassaurImagem" width="200px" src={require("./pokemonBulbassaur.jpg")} alt="Pókemon bulbassaur do tipo grama, imagem"/>
+				</div>
+				<div className="attacksHUD">
+					<button className="attacksButton" onClick = {this.SlashAttack}>
+						Slash
+					</button>
 
-				<button onClick = {this.FireAttack}>
-					Fire
-				</button>,
+					<button className="attacksButton" onClick = {this.FireAttack}>
+						Fire
+					</button>
 
-				<button onClick = {this.FlyAttack}>
-					Fly
-				</button>,
+					<br/>
 
-				<button onClick = {this.StompAttack}>
-					Stomp
-				</button>
+					<button className="attacksButton" onClick = {this.FlyAttack}>
+						Fly
+					</button>
+
+					<button className="attacksButton" onClick = {this.StompAttack}>
+						Stomp
+					</button>
+				</div>
+				<div className="attackInfo">
+					<p>Damage: 80</p>
+					<p>Effect: "confuse"</p>
+				</div>
 			</div>
 		);
 	}
@@ -122,3 +134,14 @@ ReactDOM.render(
 	<Battle/>,
 	document.getElementById("root")
 );
+
+
+
+
+
+
+
+
+
+
+
