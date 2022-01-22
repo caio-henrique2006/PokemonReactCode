@@ -4,4 +4,4 @@ A classe Battle guarda todos os componentes, incluindo os de Attack, Turn e Enem
 Os componentes de attack são executados nos botões de ataque;
 Os states estão guardados na classe Battlle;
 O componente turn é executado sempre que um botão attack é clicado;
-enemyAI executa apenas nas trocas de turno
+enemyAI executa apenas nas trocas de turno;

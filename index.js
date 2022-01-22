@@ -12,19 +12,23 @@ class Battle extends React.Component {
 		this.StompAttack = this.StompAttack.bind(this);
 		this.Turns = this.Turns.bind(this);
 		this.EnemyAI = this.EnemyAI.bind(this);
+		this.handleAttacksInfo = this.handleAttacksInfo.bind(this);
 		// Estados do Aliado e do inimigo;
 		this.state = {
 			allyStates: {life: 100},
 			enemyStates: {life: 100},
 			isAllyTurn: true,
 		};
+		this.allAttackEffects = {
+			slashAttack: {damage: 20, effects: "none"},
+			fireAttack: {damage: 15, effects: "burn"},
+			flyAttack: {damage: 30, effects: "none"},
+			stompAttack: {damage: 40, effects: "confuse"}
+		};
 	}
-	// Ataque Slash, 20 de dano e nenhum efeito;
+
 	SlashAttack() {
-		// Dicionário que guarda todos os efeitos desse ataque;
-		const slashEffects = {damage: 20, effects: "none"};
-		// Setando o dano causado a vida de "enemy";
-		let slashNewLife = this.state.enemyStates.life - slashEffects.damage;
+		let slashNewLife = this.state.enemyStates.life - this.allAttackEffects.slashAttack.damage;
 		this.setState({enemyStates: {life: slashNewLife}});
 		return(
 			// Trocando de turno;
@@ -33,8 +37,7 @@ class Battle extends React.Component {
 	}
 	// Ataque Fire, 15 de dano e efeito "burn";
 	FireAttack() {
-		const fireEffects = {damage: 15, effects: "burn"};
-		let fireNewLife = this.state.enemyStates.life - fireEffects.damage;
+		let fireNewLife = this.state.enemyStates.life - this.allAttackEffects.fireAttack.damage;
 		this.setState({enemyStates: {life: fireNewLife}});
 		return(
 			this.Turns()
@@ -42,8 +45,7 @@ class Battle extends React.Component {
 	}
 	// Ataque Fly, 30 de dano e nenhum efeito;
 	FlyAttack() {
-		const flyEffects = {damage: 30, effects: "none"};
-		let flyNewLife = this.state.enemyStates.life - flyEffects.damage;
+		let flyNewLife = this.state.enemyStates.life - this.allAttackEffects.flyAttack.damage;
 		this.setState({enemyStates: {life: flyNewLife}});
 		return(
 			this.Turns()
@@ -51,8 +53,7 @@ class Battle extends React.Component {
 	}
 	// Ataque Stomp, 40 de dano e efeito "confuse";
 	StompAttack() {
-		const stompEffects = {damage: 40, effects: "confuse"};
-		let stompNewLife = this.state.enemyStates.life - stompEffects.damage;
+		let stompNewLife = this.state.enemyStates.life - this.allAttackEffects.stompAttack.damage;
 		this.setState({enemyStates: {life: stompNewLife}});
 		return(
 			this.Turns()
@@ -77,6 +78,10 @@ class Battle extends React.Component {
 		)
 	}
 
+	handleAttacksInfo(whatAttackButton) {
+		
+	}
+
 	// Renderização:
 	render() {
 		return(
@@ -95,7 +100,8 @@ class Battle extends React.Component {
 				{
 					// Butões que executam os ataques Slash, Fire, Fly e Stomp
 				}	
-					<button className="attacksButton" onClick = {this.SlashAttack}>
+					<button className="attacksButton" onClick = {this.SlashAttack} 
+							onMouseMove = {() => this.handleAttacksInfo("slash")}>
 						Slash
 					</button>
 
@@ -117,8 +123,7 @@ class Battle extends React.Component {
 					// Ainda sem funcionar;
 				}
 				<div className="attackInfo">
-					<p>Damage: 20</p>
-					<p>Effect: "confuse"</p>
+					<p>{this.state.info}</p>
 				</div>
 			</div>
 		);
