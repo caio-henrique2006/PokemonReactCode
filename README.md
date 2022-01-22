@@ -1,4 +1,6 @@
 # PokemonReactCode
 A little pokemon text based game, where i use the system of components from React;
 
-Aqui estão apenas armazenados os arquivos usados na src do app react;
+index.js e as imagens devem ser guardadas na pasta src do app react,
+index.css e index.html devem ser colocadas na pasta public,
+Substitua os existentes,

@@ -1,9 +1,41 @@
 .charmanderImagem {
-	float: right;
+	position: absolute;
+	margin: 230px 30px 30px 50%;
 }
 .bulbassaurImagem {
 	float: left;
+	margin: 30px 20px 20px 20%;
+}
+.allyLife {
+	position: absolute;
+	margin: 18% 10px 10px 45%;
+}
+.enemyLife {
+	position: absolute;
+	margin: 3% 10px 10px 36%;
 }
 .attacksHUD {
-	float: bottom;
+	position: absolute;
+	border: 2px;
+	border-style: solid;
+	padding: 0px 13% 0px 30px;
+	margin: 35% 0px 0px 15%;
+	clear: left;
+	clear: right;
+}
+.allHUD {
+	border: 2px;
+	border-style: solid;
+	padding: 10px 10px 700px 10px;
+}
+.attacksButton {
+	margin: 10px 10px 10px 10px;
+	font-size: 30px;
+}
+.attackInfo {
+	position: absolute;
+	padding: 0px 200px 30px 0px;
+	margin: 35% 0px 0px 45%;
+	border: 2px;
+	border: solid;
 }

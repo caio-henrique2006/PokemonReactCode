@@ -27,10 +27,7 @@ class Battle extends React.Component {
 		let slashNewLife = this.state.enemyStates.life - slashEffects.damage;
 		this.setState({enemyStates: {life: slashNewLife}});
 		return(
-			// Retornando os efeitos;
-			slashEffects,
-			console.log("Ally deal " + slashEffects.damage + " of damage"),
-			console.log("Enemy now with " + slashNewLife + " HP"),
+			// Trocando de turno;
 			this.Turns()
 		);
 	}
@@ -40,9 +37,6 @@ class Battle extends React.Component {
 		let fireNewLife = this.state.enemyStates.life - fireEffects.damage;
 		this.setState({enemyStates: {life: fireNewLife}});
 		return(
-			fireEffects,
-			console.log("Ally deal " + fireEffects.damage + " of damage"),
-			console.log("Enemy now with " + fireNewLife + " of damage"),
 			this.Turns()
 		);
 	}
@@ -52,9 +46,6 @@ class Battle extends React.Component {
 		let flyNewLife = this.state.enemyStates.life - flyEffects.damage;
 		this.setState({enemyStates: {life: flyNewLife}});
 		return(
-			flyEffects,
-			console.log("Ally deal " + flyEffects.damage + " of damage"),
-			console.log("Enemy now with " + flyNewLife + " of damage"),
 			this.Turns()
 		);
 	}
@@ -64,9 +55,6 @@ class Battle extends React.Component {
 		let stompNewLife = this.state.enemyStates.life - stompEffects.damage;
 		this.setState({enemyStates: {life: stompNewLife}});
 		return(
-			stompEffects,
-			console.log("Ally deal " + stompEffects.damage + " of damage"),
-			console.log("Enemy now with " + stompNewLife + " of damage"),
 			this.Turns()
 		);
 	}
@@ -85,9 +73,7 @@ class Battle extends React.Component {
 		let enemyDamage = this.state.allyStates.life - enemyEffects.damage;
 		this.setState({allyStates: {life: enemyDamage}});
 		return(
-			this.setState({isAllyTurn: true}),
-			console.log("Enemy deal " + enemyEffects.damage + " of damage"),
-			console.log("Ally now with " + enemyDamage + " of damage")
+			this.setState({isAllyTurn: true})
 		)
 	}
 
@@ -97,12 +83,18 @@ class Battle extends React.Component {
 			// Butões que executam os ataques Slash, Fire, Fly e Stomp
 			<div className="allHUD">
 				<div className="imageHUD">
+				{
+					//Imagens e status de vida
+				}
 					<p className="enemyLife">{this.state.enemyStates.life} HP</p>
 					<p className="allyLife">{this.state.allyStates.life} HP</p>
 					<img className="charmanderImagem" width="200px" src={require("./pokemonCharmander.jpg")} alt="Pókemon charmander do tipo fogo, imagem"/>
 					<img className="bulbassaurImagem" width="200px" src={require("./pokemonBulbassaur.jpg")} alt="Pókemon bulbassaur do tipo grama, imagem"/>
 				</div>
 				<div className="attacksHUD">
+				{
+					// Butões que executam os ataques Slash, Fire, Fly e Stomp
+				}	
 					<button className="attacksButton" onClick = {this.SlashAttack}>
 						Slash
 					</button>
@@ -121,8 +113,11 @@ class Battle extends React.Component {
 						Stomp
 					</button>
 				</div>
+				{
+					// Ainda sem funcionar;
+				}
 				<div className="attackInfo">
-					<p>Damage: 80</p>
+					<p>Damage: 20</p>
 					<p>Effect: "confuse"</p>
 				</div>
 			</div>
@@ -131,6 +126,7 @@ class Battle extends React.Component {
 }
 
 ReactDOM.render(
+	// Executando a classes <Battle/>
 	<Battle/>,
 	document.getElementById("root")
 );

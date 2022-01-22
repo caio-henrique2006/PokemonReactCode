@@ -1,17 +1,7 @@
-
-
 Documentação do projeto Pokemon-React-Game.
 
-Arquivo index.js:
-
-.Tudo está declarado dentro da classe componente Battle;
-.A classe Battle possui states que representam a vida do "enemy" e do "Ally";
-.Os componentes funções ataques tem a seguinte forma{
-	[attack_name]Attack() {
-		const [attack_name]Effects = {damage: [attack_damage] effect: [attack_effect]};
-		// Setando o dano na vida do "enemy";
-		return(
-			// A função retorna a variável constante [attack_name]Effects;
-		)
-	}
-}
+A classe Battle guarda todos os componentes, incluindo os de Attack, Turn e EnemyAI;
+Os componentes de attack são executados nos botões de ataque;
+Os states estão guardados na classe Battlle;
+O componente turn é executado sempre que um botão attack é clicado;
+enemyAI executa apenas nas trocas de turno
