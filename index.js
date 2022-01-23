@@ -18,6 +18,7 @@ class Battle extends React.Component {
 			allyStates: {life: 100},
 			enemyStates: {life: 100},
 			isAllyTurn: true,
+			info: {damage: 0, effects: "none"},
 		};
 		this.allAttackEffects = {
 			slashAttack: {damage: 20, effects: "none"},
@@ -78,8 +79,23 @@ class Battle extends React.Component {
 		)
 	}
 
+	// Componente que lida com o evento mouseMove:
 	handleAttacksInfo(whatAttackButton) {
-		
+		const self = this.allAttackEffects;
+		// Modifica o state info em cada caso:
+		if(whatAttackButton === "slash") {
+			this.setState({info: {damage: self.slashAttack.damage, 
+			effects: self.slashAttack.effects}});
+		}else if(whatAttackButton === "fire") {
+			this.setState({info: {damage: self.fireAttack.damage, 
+				effects: self.fireAttack.effects}});
+		}else if(whatAttackButton === "fly") {
+			this.setState({info: {damage: self.flyAttack.damage, 
+				effects: self.flyAttack.effects}});
+		}else if(whatAttackButton === "stomp") {
+			this.setState({info: {damage: self.stompAttack.damage, 
+				effects: self.stompAttack.effects}});
+		}
 	}
 
 	// Renderização:
@@ -105,25 +121,25 @@ class Battle extends React.Component {
 						Slash
 					</button>
 
-					<button className="attacksButton" onClick = {this.FireAttack}>
+					<button className="attacksButton" onClick = {this.FireAttack}
+							onMouseMove = {() => this.handleAttacksInfo("fire")}>
 						Fire
 					</button>
 
 					<br/>
 
-					<button className="attacksButton" onClick = {this.FlyAttack}>
+					<button className="attacksButton" onClick = {this.FlyAttack}
+							onMouseMove = {() => this.handleAttacksInfo("fly")}>
 						Fly
 					</button>
 
-					<button className="attacksButton" onClick = {this.StompAttack}>
+					<button className="attacksButton" onClick = {this.StompAttack}
+							onMouseMove = {() => this.handleAttacksInfo("stomp")}>
 						Stomp
 					</button>
 				</div>
-				{
-					// Ainda sem funcionar;
-				}
-				<div className="attackInfo">
-					<p>{this.state.info}</p>
+				<div id="attackInfo">
+				<p>Damage: {this.state.info.damage}<br/>Effects: {this.state.info.effects}</p>
 				</div>
 			</div>
 		);
